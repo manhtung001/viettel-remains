@@ -1,0 +1,79 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2578
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww9320\viewh14260\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 chu\uc0\u7895 i nhi\u7873 u d\'f2ng:\
+	bien = \'93Khong\\nTung\'94 => 1 dong Khong, 1 dong Tung\
+\
+- c\'e1c escape sequece: \\a ,\\b, \\n,..\
+\
+- chu\uc0\u7895 i tr\u7847 n: bi\u7871 n th\'e0ng chu\u7895 i m\u7863 c \u273 \u7883 nh = c\'e1ch th\'eam r v\'e0o trc : VD: r\'92hi, \\nTung\'92 => in ra c\u7843  \\n\
+\
+strA = \'93Tung\'94\
+strA*3 => \'93TungTungTung\'94\
+strB = \'93t\'94\
+strC = strB in strA => false\
+strA[none:none] => l\uc0\u7845 y t\u432  \u273 \u7847 u \u273 \u7871 n cu\u7889 i \
+\
+- \'e9p ki\uc0\u7875 u: int(\'9314\'94)\
+	int(6.9) => l\uc0\u7845 y ph\u7847 n nguy\'ean => 6\
+\
+- a = \'91hi %s %s\'92 %(\'91Khong\'92, \'91Tung\'92)     => \'91hi Khong Tung\'92\
+\
+- f\'92this is \{\{a\}\} a \{strA\}\'92 => this is \{a\} a Tung\
+\
+- \'91a: \{1\}, b: \{2\}, c: \{0\}\'92.format(\'91one\'92, \'91two\'92, \'91three\'92) => \'91a: two, b:three, c: one\'92\
+\
+- c\uc0\u259 n l\u7873 : c l\'e0 k\'ed t\u7921  mu\u7889 n thay th\u7871  v\'e0o ch\u7895  tr\u7889 ng (default kho\u7843 ng tr\u7855 ng), n l\'e0 s\u7889  k\'ed t\u7921  d\'f9ng \u273 \u7875  c\u259 n l\u7873 \
+	c\uc0\u259 n l\u7873  tr\'e1i \{:(c)<n\}\
+	c\uc0\u259 n l\u7873  ph\u7843 i: >\
+	c\uc0\u259 n l\u7873  gi\u7919 a: ^\
+\
+- \'93tung\'94.capitalize() => Tung // vi\uc0\u7871 t hoa k\'ed t\u7921  \u273 \u7847 u ti\'ean\
+.upper()\
+.lower()\
+.swapcase() => vi\uc0\u7871 t hoa th\'e0ng thg, thg th\'e0nh hoa\
+.title() => xo\'e1 kho\uc0\u7843 ng tr\u7855 ng th\u7915 a, vi\u7871 t hoa ch\u7919  c\'e1i \u273 \u7847 u t\u7915 ng t\u7915 \
+\
+.center(width, [fill]) => c\uc0\u259 n gi\u7919 a v\u7899 i c\'e1i c\u259 n l\'e0 fill (default l\'e0 kho\u7843 ng tr\u7855 ng)\
+.rjust(..) => c\uc0\u259 n ph\u7843 i\
+.ljust(..) => tr\'e1i\
+\
+- a = \'91hi\'92\
+- b = a.join([\'911\'92, \'912\'92, \'913\'92]) => 1hi2hi3\
+\
+\'91Tung T\'92.replace(\'92T\'92, \'92t\'92 , 1) => tung T.  // kh\'f4ng truy\uc0\u7873 n 1 default \u273 \u7893 i all\
+\
+\'91coc\'92.srtip(\'91c\'92) => \'91o\'92 // xo\'e1 \uc0\u7903  2 \u273 \u7847 u, default l\'e0 xo\'e1 kho\u7843 ng tr\u7855 ng\
+	.rstrip && .lstrip // right va left\
+\
+\'91khong manh tung\'92.split(\'91 \'91, 1) => [\'91khong\'92, \'91manh tung\'92]\
+	.rsplit => c\uc0\u7855 t t\u7915  b\'ean ph\u7843 i qua, split = lsplit c\u7855 t t\u7915  b\'ean tr\'e1i\
+\
+\'91khong manh tung\'92.partition(\'91manh\'92) => (\'91khong \'91, \'91manh\'92, \'91 tung\'92) \
+	// tr\uc0\u7843  v\u7873  ki\u7875 u tuple v\u7899 i 3 ptu l\'e0 chu\u7895 i trc, n\'f3, chu\u7895 i sau\
+	// .rpartition => c\uc0\u7855 t t\u7915  ph\u7843 i qua\
+\
+\'91khong manh tung\'92.count(\'91n\'92, 0, 9) => 2 // t\'ecm s\uc0\u7889  l\u7847 n xh c\u7911 a n t\u7915  vtr 0->9 , default all\
+\
+\'91khong manh tung\'92.startswith(\'91kh\'92) => true // c\'f3 ph\uc0\u7843 i xu\u7845 t Ph\'e1t = chu\u7895 i \'91kh\'92 kh\'f4ng\
+	.startswith(\'91h\'92, 1, 4) => true // t\uc0\u7915  vtri 1->4 c\'f3 p\u7843 i xu\u7845 t Ph\'e1t = chu\u7895 i \'91h\'92 kh\'f4ng \
+.endswith()\
+\
+\'91khong manh tung\'92.find(\'91manh\'92) => 6 // t\'ecm chu\uc0\u7895 i trong chu\u7895 i, tr\u7843  v\u7873  vtri chu\u7895 i \u273 \u7847 u ti\'ean\
+	// kh\'f4ng t\'ecm th\uc0\u7845 y tr\u7843  v\u7873  -1\
+	// rfind() t\'ecm t\uc0\u7915  ph\u7843 i qua\
+.index gi\uc0\u7889 ng .find nh\u432 ng .index kh\'f4ng t\'ecm th\u7845 y qu\u259 ng ra l\u7895 i lu\'f4n\
+\
+\'91khong manh tung\'92.islower() => true // c\'f3 ph\uc0\u7843 i chu\u7895 i vi\u7871 t thg hay k\
+.isupper() // c\'f3 ph\uc0\u7843 i chu\u7895 i vi\u7871 t hoa hay k\
+.isdigit()  // c\'f3 ph\uc0\u7843 i chu\u7895 i s\u7889  hay k\
+.isspace()  // c\'f3 ph\uc0\u7843 i chu\u7895 i d\u7845 u c\'e1ch hay k\
+\
+\
+\
+\
+}

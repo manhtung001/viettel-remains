@@ -1,0 +1,40 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2578
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 HelveticaNeue-Bold;\f2\fmodern\fcharset0 Courier;
+}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red255\green255\blue255;\red10\green9\blue26;
+\red10\green9\blue26;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;\cssrgb\c100000\c100000\c100000;\cssrgb\c3922\c3922\c13725;
+\cssrgb\c3922\c3922\c13725;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww19300\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 why redux need reducer to be pure function\
+\
+- 
+\f1\b \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Pure functions\
+\pard\pardeftab720\sa660\partightenfactor0
+
+\f0\b0 \cf4 \strokec4 At a fundamental level, any function that doesn\'92t alter input data and that doesn\'92t depend on external state (like a database, DOM, or global variable) and consistently provides the same output for the same input is a \'93pure\'94 function.\
+\pard\pardeftab720\partightenfactor0
+\cf4 Let\'92s see what happens if we make our reducer \'93impure.\'94 Let\'92s comment out the section where it creates a new object, and instead let\'92s mutate the state\'92s completed prop directly.\
+\pard\pardeftab720\sl504\partightenfactor0
+
+\f2 \cf2 \cb1 \strokec2 case 'TOGGLE_TODO':      if (state.id !== action.id) \{        return state;      \}\
+            // return \{      //   ...state,      //   completed: !state.completed      // \}\
+      state.completed = !state.completed;//change original object      return state;\
+// \uc0\u273 \'e3 thay \u273 \u7893 i tr\u7921 c ti\u7871 p 
+\f0 \cf5 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 prop c\uc0\u7911 a state => thay \u273 \u7893 i bi\u7871 n ngo\'e0i h\'e0m => ko ph\u7843 i pure func
+\f2 \cf2 \cb1 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0 \cf4 \cb3 \strokec4 Now if we try to toggle the TODO after this change, nothing happens!\
+\
+Redux simply checks whether the old object is the same as the new object by comparing the memory locations of the two objects. So if you mutate the old object\'92s property inside a reducer, the \'93new state\'94 and the \'93old state\'94 will both point to the same object. Hence Redux thinks nothing has changed! So this won\'92t work.
+\f2 \cf2 \cb1 \strokec2 \
+
+\f0 \cf4 \cb3 \strokec4 \
+}
